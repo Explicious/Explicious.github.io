@@ -12,15 +12,16 @@
   <script>
     console.log("hi");
     async function data_init() {
-      var data = await d3.csv("/winemag-data-130k-v2.csv");
+      var data = [];
+      await d3.csv("/winemag-data-130k-v2.csv", (d) => {data = d});
       var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       const aggregate = (value) => {
         console.log("looping...")
-        if (typeof (value) !== "number") {
-          console.log(value)
+        if (typeof (value.price) !== "number") {
+          console.log(value.price)
           return;
         }
-        switch (Math.floor(value / 10)) {
+        switch (Math.floor(value.price / 10)) {
           case 0:
             agg_data[0]++;
             break;

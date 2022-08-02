@@ -17,7 +17,7 @@
       const aggregate = (value) => {
         console.log("looping...")
         if (typeof (value.points) !== "number") {
-          console.log(value.points)
+          console.log(typeof(value.points))
           return;
         }
         switch (Math.floor(value.points / 10)) {

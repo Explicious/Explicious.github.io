@@ -11,7 +11,7 @@
         <script>
             
             async function data_init () {
-                data = await d3.csv("/winemag-data-130k-v2.csv",(d)=>{console.log(d)});
+                var data = await d3.csv("/winemag-data-130k-v2.csv");
                 var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 const aggregate = (value) => {
                     if(typeof(value) !== "number"){

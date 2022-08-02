@@ -12,8 +12,7 @@
   <script>
     console.log("hi");
     async function data_init() {
-      var data = [];
-      var blocker = await d3.csv("/small.csv", (d) => {console.log(d); data = d});
+      var data = await d3.csv("/small.csv");
       var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       const aggregate = (value) => {
         console.log("looping...")
@@ -58,7 +57,6 @@
         }
         
       };
-      console.log(blocker);
       data.forEach(aggregate);
       console.log(agg_data);
       console.log("hello");

@@ -15,7 +15,9 @@
       var data = await d3.csv("/winemag-data-130k-v2.csv");
       var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       const aggregate = (value) => {
+        console.log("looping...")
         if (typeof (value) !== "number") {
+          console.log(value)
           return;
         }
         switch (Math.floor(value / 10)) {

@@ -53,14 +53,7 @@
         
       };
       data.forEach(aggregate);
-      console.log(agg_data);
-      console.log("hello");
-      d3.select("svg").selectAll("rect")
-      .data(agg_data).enter().append("rect")
-      .attr("x", function (d, i) { return (i + 1) * 80 })
-      .attr("y", function (d, i) { return 800 - Math.floor(d / 100) })
-      .attr("height", function (d, i) { return Math.floor(d / 100); })
-      .attr("width", 80);
+      d3.select("svg").selectAll("rect").data(agg_data).enter().append("rect").attr("x", function (d, i) { return (i + 1) * 80 }).attr("y", function (d, i) { return 800 - Math.floor(d / 100) }).attr("height", function (d, i) { return Math.floor(d / 100); }).attr("width", 80);
     }
   </script>
 </html>

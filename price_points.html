@@ -7,16 +7,47 @@
 
     <body>
         <h1 class="test">Price of Wine vs. Point Value Given</h1>
-        <svg width=1000 height=1000 >
-            
-        </svg>
+        <svg width=1000 height=1000> </svg>
         <script>
-            data = [0]
+             
             data = d3.csv("/winemag-data-130k-v2.csv",(d)=>{console.log(d)});
-            var agg_data = [10,20,30,40,50];
-            var sum = 0;
+            var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             const aggregate = (value) => {
-                sum += value.points;
+                switch (Math.floor(value/10)) {
+                    case 0:
+                        agg_data[0]++;
+                        break;
+                    case 1:
+                        agg_data[1]++;
+                        break;
+                    case 2:
+                        agg_data[2]++;
+                        break;
+                    case 3:
+                        agg_data[3]++;
+                        break;
+                    case 4:
+                        agg_data[4]++;
+                        break;
+                    case 5:
+                        agg_data[5]++;
+                        break;
+                    case 6:
+                        agg_data[6]++;
+                        break;
+                    case 7:
+                        agg_data[7]++;
+                        break;
+                    case 8:
+                        agg_data[8]++;
+                        break;
+                    case 9:
+                        agg_data[9]++;
+                        break;
+                    case 10:
+                        agg_data[9]++;
+                        break;
+                }
             };
             data.forEach(aggregate);
             d3.select("svg").selectAll("rect").data(agg_data).enter().append("rect").attr("x", 100).attr("y",100).attr("height",function(d, i) {return d;}).attr("width",100);

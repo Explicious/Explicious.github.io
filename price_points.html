@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <script src = "https://d3js.org/d3.v4.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="index.css" /> 
+    </head>
+
+    <body>
+        <h1 class="test">Price of Wine vs. Point Value Given</h1>
+        <svg width=1000 height=1000 >
+            
+        </svg>
+        <script>
+            data = [0]
+            data = d3.csv("/winemag-data-130k-v2.csv",(d)=>{console.log(d)});
+            var agg_data = [10,20,30,40,50];
+            var sum = 0;
+            const aggregate = (value) => {
+                sum += value.points;
+            };
+            data.forEach(aggregate);
+            d3.select("svg").selectAll("rect").data(agg_data).enter().append("rect").attr("x", 100).attr("y",100).attr("height",function(d, i) {return d;}).attr("width",100);
+        </script>
+</html>

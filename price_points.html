@@ -16,11 +16,11 @@
       var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       const aggregate = (value) => {
         console.log("looping...")
-        if (typeof (value.price) !== "number") {
-          console.log(value.price)
+        if (typeof (value.points) !== "number") {
+          console.log(value.points)
           return;
         }
-        switch (Math.floor(value.price / 10)) {
+        switch (Math.floor(value.points / 10)) {
           case 0:
             agg_data[0]++;
             break;

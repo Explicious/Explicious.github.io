@@ -13,7 +13,7 @@
     async function data_init() {
       var data = await d3.csv("/winemag-data-130k-v2.csv");
       var agg_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-      var x_axis = d3.scaleLinear().domain([80,99]).range()
+      var x_axis = d3.scaleLinear().domain([80,99]).range([100, 900])
       const aggregate = (value) => {
         agg_data[(Math.floor((parseInt(value.points)-80)))]++;
       };
@@ -21,7 +21,7 @@
       d3.select("svg").selectAll("rect").data(agg_data).enter().append("rect")
       .attr("x", function (d, i) { return (i + 1) * 40 }).attr("y", function (d, i) { return 600 - Math.floor(d / 100) })
       .attr("height", function (d, i) { return Math.floor(d / 100); }).attr("width", 40);
-      d3.select("svg").append("g").attr("transform", "translate(100, 100)").call(d3.axisBottom(x_axis))
+      d3.select("svg").append("g").attr("transform", "translate(100, 600)").call(d3.axisBottom(x_axis))
     }
   </script>
 </html>
